@@ -1,6 +1,8 @@
 library("devtools")
-#install_github("gianmarcoalberti/CAseriation")
+install_github("gianmarcoalberti/CAseriation")
 library(CAseriation)
+
+pdf()
 
 plot.clusters.rows <- function (data, x,y){
   res.ca <- CA(data, axes=c(x, y), graph=FALSE)
@@ -38,7 +40,7 @@ sort.table <- function (data, dim){
 }
 
 # read data from choosen table
-mydata <- read.table(file="pfg-cpl-headers.txt", row.names=1, header=T)
+mydata <- read.table(file="data/pfg-cpl-headers.txt", row.names=1, header=T)
 pfg <- data.frame(mydata)
 check.ca.plot(pfg,1,2)
 sort.table(pfg,1)
