@@ -11,7 +11,16 @@ The paper describes the Iterative Deterministic Seriation Solution (IDSS) algori
 
 IDSS has many other features either implemented or in development, but the one listed above are specifically described in this paper.  
 
+
+
+## IDSS Software ##
+
+The IDSS software itself will continue to evolve, and thus is NOT included in this analysis/paper repository.  
+
 The IDSS software implementation is available at Github in [IDSS](https://github.com/clipo/idss-seriation).  That repository needs to be installed and available on the execution path, along with a Python 2.7 installation (we strongly recommend the [Anaconda Scientific Python](http://continuum.io) distribution, which will make your life a LOT easier).  
+
+The specific release used to perform this analysis (and thus, for readers to replicate it) is [Release V2.0](https://github.com/clipo/idss-seriation/releases/tag/v2.0), available as ZIP or TAR files.  The README inside the archive contains installation information and dependencies.
+
 
 
 ## Directories ##
