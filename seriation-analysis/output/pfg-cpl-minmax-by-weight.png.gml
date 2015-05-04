@@ -185,12 +185,6 @@ graph [
     weight 0.234218286831
   ]
   edge [
-    source 2
-    target 5
-    inverseweight 3.94167973567
-    weight 0.253698947419
-  ]
-  edge [
     source 3
     target 9
     inverseweight 14.2575947868
@@ -225,6 +219,12 @@ graph [
     target 12
     inverseweight 3.17052860345
     weight 0.315404818904
+  ]
+  edge [
+    source 7
+    target 17
+    inverseweight 3.74980424948
+    weight 0.26668058743
   ]
   edge [
     source 7
@@ -264,14 +264,14 @@ graph [
   ]
   edge [
     source 15
+    target 17
+    inverseweight 6.3293595831
+    weight 0.157993867606
+  ]
+  edge [
+    source 15
     target 18
     inverseweight 9.27817182498
     weight 0.107779853495
-  ]
-  edge [
-    source 17
-    target 18
-    inverseweight 4.10501918458
-    weight 0.243604220842
   ]
 ]

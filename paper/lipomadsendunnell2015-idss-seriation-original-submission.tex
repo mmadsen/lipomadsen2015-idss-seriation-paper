@@ -1,0 +1,1069 @@
+% Template for PLoS
+% Version 3.0 December 2014
+%
+% To compile to pdf, run:
+% latex plos.template
+% bibtex plos.template
+% latex plos.template
+% latex plos.template
+% dvipdf plos.template
+%
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended 
+% to minimize problems and delays during our production 
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Once your paper is accepted for publication, 
+% PLEASE REMOVE ALL TRACKED CHANGES in this file and leave only
+% the final text of your manuscript.
+%
+% There are no restrictions on package use within the LaTeX files except that 
+% no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% Please do not create a heading level below \subsection. For 3rd level headings, use \paragraph{}.
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file. 
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% See http://www.plosone.org/static/figureGuidelines for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - tabs/spacing/line breaks within cells to alter layout or alignment
+% - vertically-merged cells (no tabular environments within tabular environments, do not use \multirow)
+% - colors, shading, or graphic objects
+% See http://www.plosone.org/static/figureGuidelines#tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
+%
+% IMPORTANT
+% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://www.plosone.org/static/latexGuidelines
+%
+% Please be sure to include all portions of an equation in the math environment.
+%
+% Do not include text that is not math in the math environment. For example, CO2 will be CO\textsubscript{2}.
+%
+% Please add line breaks to long display equations when possible in order to fit size of the column. 
+%
+% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+%
+% % % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Please contact latex@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Use Unicode characters when possible
+\usepackage[utf8]{inputenc}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% fixltx2e package for \textsubscript
+\usepackage{fixltx2e}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% rotating package for sideways tables
+\usepackage{rotating}
+\usepackage{tabulary}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2009}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Leave date blank
+\date{}
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\includegraphics[natwidth=1.3in,natheight=0.4in]{PLOSlogo.png}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\sf PLOS}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+
+\begin{document}
+\vspace*{0.35in}
+
+% Title must be 150 characters or less
+\begin{flushleft}
+{\Large
+\textbf\newline{A Theoretically-Sufficient And Computationally-Practical Technique For Deterministic Frequency Seriation}
+}
+\newline
+% Insert Author names, affiliations and corresponding author email.
+\\
+Carl P. Lipo\textsuperscript{1 \Yinyang},
+Mark E. Madsen\textsuperscript{2,\Yinyang},
+Robert C. Dunnell\textsuperscript{3,\dag},
+
+\bf{1} Department of Anthropology and IIRMES, California State University Long Beach, 1250 Bellflower Blvd., Long Beach, CA 90840, USA
+\\
+\bf{2} Department of Anthropology, Box 353100, University of Washington, Seattle, WA 98195-3100, USA
+\\
+\bf{3} Mississippi State University, Department of Anthropology and Middle Eastern Cultures, P.O. Box AR, Mississippi State University, MS 39762, USA
+\\
+
+
+% Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
+% 
+% Remove or comment out the author notes below if they aren't used.
+%
+% Primary Equal Contribution Note
+\Yinyang These authors contributed equally to this work.
+
+
+% Current address notes
+%\textcurrency a Insert current address of first author with an address update
+% \textcurrency b Insert current address of second author with an address update
+% \textcurrency c Insert current address of third author with an address update
+
+% Deceased author note
+\dag Deceased
+
+% Group/Consortium Author Note
+
+* E-mail: Corresponding clipo@csulb.edu
+\end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
+While seriation played a key role in the formation of archaeology as a discipline, its utility for exploring issues of contemporary interest beyond chronology has been limited. This limitation is due in part to a lack of a quantitative means for generating deterministic seriation solutions. Brute force approaches to solving seriation orders are impossible due to the numbers of possible combinations that need to be explored, a number that easily outstrips all available computing capacity. Similarity-based measures offer an alternative but rely upon a compressed description of the data to order assemblages. This compression eliminates the ability to fit data using all of the features of the seriation method, and thus offers little confidence in our ability to interpret the resulting order. Recently, frequency seriation has been reconceived as a general method for studying the structure of cultural transmission through time and across space. This evolution-based framework renews the potential for seriation but also calls for a computationally feasible algorithm that is capable of producing solutions under varying configurations, without manual trial and error fits. Here, we introduce the Iterative Deterministic Seriation Solution (IDSS) for constructing frequency seriation solutions, an algorithm that dramatically constrains the search for potential valid orders of assemblages. Our initial implementation of IDSS does not solve all the problems of seriation but begins to moves towards a resolution of a long-standing problem in archaeology while opening up new avenues of research into the study of cultural relatedness.
+
+
+% Please keep the Author Summary between 150 and 200 words
+% Use first person. PLOS ONE authors please skip this step. 
+% Author Summary not valid for PLOS ONE submissions.   
+% \section*{Author Summary}
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+\linenumbers
+
+\section*{Introduction}
+As a means of arranging descriptions of artifacts using patterns of relative artifact abundances to build chronologies, deterministic frequency seriation has played an integral part of the emergence of archaeology as a coherent discipline \cite{lyman1997rise}. Developed almost 100 years ago, deterministic frequency seriation enabled culture historians to construct regional chronologies and was paramount in generating much of our understanding of prehistory throughout the New World \cite{Beals1945,Bluhm1951,Evans1955,Ford1949,Kidder1917,Mayer-Oakes1955,Meggers1957,Phillips1951,Rouse1939,Smith1950}. Yet, for the last 50 years, seriation has been largely ignored due to its association with relative chronology and the mistaken belief that radiometric dating techniques have replaced it. Now, saddled with a prevalent misunderstanding that seriation is simply a ``dating method'' \cite{Michels1972}, that is useful only when radiocarbon dating is impossible \cite{Wikipedia.com2014}, deterministic frequency seriation has never been developed into a computational algorithm that can take it beyond its original roots in culture history. While there has been some interest in seriation for disciplines outside of archaeology \cite{Arangala2013,Buetow1987,Muller1983Geographic,smith1996seriation}, to the extent that methodological development has occurred in archaeology over in the last 50 years, the focus has been largely on reducing frequency seriation to similarity-ordering problems that can be attacked via multivariate statistical methods. 
+
+Recently, deterministic frequency seriation has regained some attention due to the demonstration that the method can be theoretically explained with an evolutionary framework. While Dunnell \cite{Dunnell1978,Dunnell1982} hinted at this possibility, the work of Neiman \cite{Neiman1995} firmly established an explanatory basis within cultural transmission models for the unimodal distributions that form the core of the frequency seriation algorithm. While the potential of this idea is has been long recognized \cite{Driver1932}, this achievement has led to the reimagining of deterministic frequency seriation as a general tool for studying patterns of cultural inheritance within populations through time and across space \cite{Eerkens2005,Eerkens2007,Harpole2002,Kroeber1919,Lipo1997Population,Lipo2001,lyman2006seriation,Mallios2014,o2000applying,Rafferty1994,Rafferty2008,Smith2005,Teltser1995}. With these advances, there remains substantial promise for deterministic frequency seriation to again become a primary tool for archaeological analyses as it enables researchers to quantitatively track patterns of interaction, define social communities and trace lineages among past populations, in addition to informing upon chronology.  In this way, seriation could serve as a key method in the establishment of a fully evolution-based discipline.
+
+Despite its potential, the use of deterministic frequency seriation as a productive tool for archaeological research remains difficult, and methods for constructing and evaluating solutions are incomplete. While a handful of assemblages can be seriated using hand manipulation, sorting through all possible orderings for a set of assemblages is neither feasible nor systematic. When the numbers of assemblages gets larger than 10, the number of possible orders to be evaluated yields a combinatorial explosion. The order of magnitude of numbers involved makes brute force approaches impossible even using modern computing power. This limitation was recognized early in the discipline. When archaeologists became concerned with the quantitative basis of their methods, statistical approaches were developed that could construct orders on the basis of similarity scores \cite{Ascher1959,Ascher1963,Brainerd1951,Kendall1963,Kendall1969,Kendall1970,Kendall1971,Kuzara1966,Matthews1963}. 
+
+Advances in matrix reordering techniques such as such as multidimensional scaling \cite{Bove2013,Cowgill1972,Drennan1976,hodson1970cluster}, spectral algorithms \cite{Atkins1998Spectral} and Bayesian analyses \cite{Buck2000,Halekoh1999,Halekoh2004} offer increasing degrees of sophistication but follow the same basic principle of using similarity as a basis for constructing orders. All of these approaches guarantee solutions but also eliminate much of the information that is available in the violations of the underlying model, a limitation that results in the inability to distinguish different causal influences upon seriation orders. Techniques using correspondence analysis \cite{djindjian1984seriation,Neiman1995a,Peebles2012,Smith2005,Wartenberg1987} ameliorate this issue to some degree but at the risk of equifinality. 
+
+With similarity-based seriation techniques one is guaranteed to find a solution, but the order produced in the order reflects sources of variability beyond time including the effects of sample size, biased transmission processes and spatial variation \cite{Dunnell1970}. While one may suspect that the final order is largely chronological, whether any particular subset of assemblages can be explained to have their orders represent chronology, their layout in space, a function of differences in the relative degree of interaction -- or some combination of these factors -- is not clear.
+
+Here, we introduce a new quantitative seriation algorithm that addresses the computational barrier inherent in deterministic frequency seriation while also building upon the logical structure of the original method. The algorithm succeeds by iteratively constructing small seriation solutions and then using the successful solutions as the basis for creating larger ones. Significantly, the proposed algorithm produces the entire set of unique valid seriation solutions. By including all valid orders, one can use the patterning of solutions as data regarding the structure of transmission. By aggregating multiple sets of valid solutions, orderings that incorporate space and time are possible, moving seriation beyond simple ordinal ``dating'' of assemblages and allowing its use in measuring relatedness and cultural transmission at regional scales. The approach also enables statistical assessment of the significance of solutions. Using an example from the Mississippi River valley, we demonstrate how the new algorithm provides detailed insight into the temporal and spatial structure of inheritance.  Suitably extended in this way, we argue that deterministic frequency seriation has the potential to inspire new innovative approaches to the archaeological record as much as it did in the 1930s as a critical tool for building chronology.
+
+
+% You may title this section "Methods" or "Models". 
+% "Models" is not a valid title for PLoS ONE authors. However, PLoS ONE
+% authors may use "Analysis" 
+\section*{Materials and Methods}
+\subsection*{The Method Seriation}
+
+It is not accidental that most practical approaches to creating deterministic seriation solutions have remained largely hand-built despite the availability of computer processing tools. Seriation, whether employing class frequencies or simple occurrence information to order assemblages, yields solutions that are located from the permutations of the set of assemblages. The set of possible permutations that must be examined are vast in numbers. Moreover, seriation has been related to the ``traveling salesman problem''(TSP) in which one is given a list of cities and their pairwise distances, and tasked to find the shortest possible route that visits each city exactly once and returns to the origin city \cite{Kadane1971,Laporte1978,Wilkinson1971}. If one tries to solve the TSP by examining all possible routes, it quickly becomes impossible as the number of solutions increases exponentially with the number of cities in the list. Given the number of solutions that must be searched, even parallel clusters of the fastest available computers are insufficient when the number of assemblages gets larger than 14 (Figure \ref{S1_Fig}). As described in more detail by Madsen and Lipo \cite{Madsen2014}, the problem is confounded to an even greater degree since the single best solution may be some combination of sub-solutions of the entire set of assemblages. 
+
+
+
+
+
+The TSP problem has generally led many to use approximate approaches, based upon reduced similarity descriptions of type frequencies. Deterministic algorithms for frequency seriation, however, have advantages over similarity approaches since they make use of all of the type abundance information for each assemblage to build orders, thus allowing orders to be rejected and the search space thus reduced. Currently, only hand-built approaches have been the only feasible way of creating deterministic seriation solutions \cite{Lipo1997Population,Lipo2001,Lipo2008}. In addition to integrating pairwise statistical evaluation for comparison of assemblages \cite{Lipo1997Population}, manual solutions have the advantage of a general pattern recognition strategy that is inherent in our cognition. While unquantifiable and imperfect, researchers have had to accept that hand-built solutions are effectively a ``best guess'' or suffer from the limitations of similarity-based techniques. 
+
+Ultimately, however, neither choice is satisfactory since the strength of seriation as a method rests on statistical assessment of the solutions, a requirement that ultimately requires us to deterministically finding all the solutions that match the dual requirements of continuity and unimodality. Full characterization of the search space is integral to the methods. Since we explain variability in frequencies as a function of transmission through time and space, finding the points at which assemblages cannot be fit together is as important as finding those assemblages that do \cite{Lipo1997Population,Lipo2008}. In contrast, approximate similarity orderings sharply limit the degree to which seriation can ``find'' the points at which solutions cannot be constructed, and thus renders the method unsuitable for disentangling the contributions of space, intensity of contact, and time. 
+
+Figure \ref{fig1}, for example, demonstrates the kind of results that occur using with even the best available similarity-based seriation techniques such as correspondence analysis \cite{Bellanger2008,djindjian1984seriation,Peebles2012,Smith2005} on large assemblages of well-described ceramics. As shown in Panel B of Figure \ref{fig1}, the results generally meet the expectation of unimodality but there are many deviations in the distribution. When we examine the distribution of the assemblages that comprise the solution (Figure \ref{fig1}, Panel C and Figure \ref{fig2}), we can see that the type frequencies show substantial spatial patterning. The problem, however, is that given any order how does one distinguish the varying effects of space from those of time? How does one trace the population structure separately from both time and space?
+
+
+\begin{figure}[h]
+\caption{{\bf The results of correspondence analysis (CA) for the dataset in Table \ref{table1} following \cite{Alberti2013}.} (A) Symmetric map of the CA, showing the first 2 dimensions. (B) The seriation order produced from the CA shown in standard centered bar format. (C) CA results shown with clusters as determined by hierarchical cluster analysis on the principle components.}
+\label{fig1}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf Spatial groups of assemblages as determined by the hierarchical cluster analysis on the principle components as shown in Figure \ref{fig1}.}}
+\label{fig2}
+\end{figure}
+
+\subsection*{A Model-based Approach To Solving The Seriation Conundrum: IDSS}
+We argue that at least some progress can be made towards these answers by returning to deterministic methods. Significantly, while probabilistic approaches produce approximate answers, they do so by throwing away unique frequency pattern information.  The pattern of frequency changes between assemblages, with some classes increasing in frequency, while others hold steady or decline, not only uniquely identifies how assemblages “fit” together as cultural traits flow through the larger population in different directions, this detail is useful in reducing the scope of the seriation problem, helping to winnow possible solutions and thus reduce the task of assessing potential orders. In a theoretical sense, we contend that model-driven seriation may alleviate the combinatorial nightmare. The combinatorial issue is partially a function of having reduced the description of the problem to one that has the same computational complexity as other ``intractable'' problems, such as the ``traveling salesman'' problem or finding Hamiltonian paths in a graph. By using the concepts embedded cultural transmission theory, we can achieve a description that has better performance properties, though any such method will still be computationally expensive. 
+
+Dunnell \cite{Dunnell1982} showed that evolutionary theory can explain why the empirical generalizations driving seriation are true to the extent they are and why they fail when they fail. Taking historical classes to represent neutral traits (i.e., traits that have no measurable differences in terms of functional impact), the forces that primarily act on their temporal and spatial distribution are stochastic (drift). This is what produced both the unique, historically non-repetitive sequence of forms on which the seriation method depended and also accounted for unimodal distributions of relative abundances. Other workers \cite{Lipo1997Population,Lipo2001a,Lipo2008,lyman2006seriation,Neiman1995,Teltser1995} have extended this work considerably. 
+
+The problem remains, however, as to how to turn this theoretical knowledge into a viable quantitative technique that can systematically generate seriation solution but that can also be statistically evaluated. Moving forward requires us to construct a technique that meets the demands of the deterministic frequency seriation method, as we now understand it. We see four major requirements for an algorithmic approach to deterministic frequency seriation. First, the algorithm must allow the analyst to address all of the requirements of the seriation method including unimodality and continuity.  Unimodality is a construct that serves with continuity to help ensure that patterns observed are the product of cultural transmission. While \cite{Neiman1995} has shown that cultural transmission of neutral traits does not always produce unimodal distributions, those distributions of class frequencies that are unimodal have a have a significant chance of being the result of cultural transmission.  In this way, unimodality provides a powerful heuristic for isolating patterns due to inheritance.  Seriation is not a claim that transmission always creates unimodal patterns, so much as it is a selection of those data series which are unimodal, to serve as a measuring tool for prehistoric cultural contact and transmission. 
+
+Second, generation of candidate solutions should be automated, so that seriation can be used as part of larger analyses (e.g., spatial analysis, simulation studies of migration, trade, or cultural transmission). Third, the algorithm should provide error estimates and confidence bands where possible, to allow evaluation of the quality of a solution given the input data, and diagnosis of any violations of the method’s assumptions. Finally, the technique must be able to find all viable deterministic solutions given bounded and reasonable processing time for even relatively large sets of assemblage (e.g., 20 or 50), allowing replicate analysis such that resampling or the bootstrap can be used to calculate error terms and evaluate the effects of sample size. 
+
+These are not easy requirements to meet. In the space created by all the possible orderings of assemblages, the vast majority of orders are invalid, as the combinations violate the conditions of the deterministic frequency seriation method due to deviations from unimodality and/or continuity. Thus, the way to avoid the combinatorial explosion inherent in the seriation problem is to devise a meaningful ``pruning''heuristic that can shrink the effective search space by excluding possible orderings that cannot lead to full solutions given violations of the seriation model.
+
+\paragraph{Overview of the IDSS Algorithm}
+The technique we propose to accomplish these goals is called the Iterative Deterministic Seriation Solution (IDSS). IDSS builds deterministic frequency seriation orders in an iterative process, starting with valid seriation solutions composed of the smallest possible number of assemblages and then employing these as building blocks for larger solutions. Solutions are grown from valid smaller solutions, instead of evaluating all possible combinations. We start with combinations of three assemblages, the fewest that can be evaluated in terms of the degree to which they meet the demands of the model. With three assemblages (triples), we retain only those sets in which the frequencies for each of the classes show a steady increase, steady decrease, a middle ``peak'', or no change at all (Figure \ref{fig3}). Assemblage orders that have frequencies that decrease then increase are eliminated as building blocks. 
+
+\begin{figure}[h]
+\caption{{\bf For any three sets of assemblages, valid seriation solutions consist of four possible patterns type frequencies.} These triplets are the smallest subset of assemblages that are valid according to the expectations of the seriation method.}
+\label{fig3}
+\end{figure}
+
+The next step in the procedure is to take the successful triples and see if any of the remaining assemblages can be added to either end to create a set of four assemblages while also avoiding violations of the seriation model. This process is then repeated iteratively until either there no assemblages remaining to be linked to the ends of the existing orders or until no larger valid seriation solutions can be found. Only the successful combinations of four are then used to assess the potential combinations of five, and so on. The end product of the algorithm is one or more valid orders with the possibility that some assemblages may appear in more than one ordering. 
+The logical basis of this procedure is that all larger solutions consist of, by definition, smaller subsets of valid solutions. Thus, the valid solution set of six assemblages labeled A-B-C-D-E-F also includes valid subsets such as B-C-D and B-C-D-E. So if we start with all valid triple solutions and sequentially check which solutions include valid sets of four assemblages, and so on, we are guaranteed to end up with the largest possible solution. This process vastly trims down the number of possible solutions since we no longer have to search all of the future combinations that stem from an invalid solution. The search space is pruned as the algorithm proceeds. 
+
+While this iterative approach reduces the numbers of combinations, the numbers of possibilities to examine still get large. This growth in numbers is due to the fact any large solution of $M$ assemblages (a subset of $N$, where $M<N$) also includes the number of further subsets. So while we are able to avoid checking combinations that do not meet the criteria of the seriation method, the sheer number of valid solutions still can be extremely large. While many of these solutions are ultimately trivial since they often become parts of larger orders, when one is iterative ordering assemblages the smaller subsets must always be searched before the overarching seriation order is discovered. 
+
+By itself, building solutions by iterative “agglomeration” of smaller building blocks reduces the search space considerably, and by itself is enough to allow the analysis of reasonably sized data sets. Scaling the algorithm to large numbers of assemblages, however, requires additional heuristics to further restrict the possibilities that must be evaluated. 
+
+Solving this secondary problem requires further application of the theory underlying the seriation method. Ford’s \cite{Ford1949} criterion states for assemblages to be seriated they must come from the same cultural tradition (see also \cite{Dunnell1970}). This means that the differences in frequencies between any two assemblages can be assumed to mainly be a function of differences in the degree of interaction. In an ideal set of assemblages that reflect a single cultural tradition one would expect smoothly continuous frequency changes. When multiple cultural traditions are combined, the differences in frequencies will be discontinuous since more than one set of processes is in operation. What this means in practice is that discontinuity in frequencies reflect the potential for more than one cultural tradition or sampling error. Resolution of these options requires additional samples. 
+Since arbitrary parts of a single large solution put together will also produce discontinuities, we can use the same continuity principle to rule out solutions that we do not need to evaluate. By assigning a threshold of discontinuity measured by the maximum allowable difference between the summed frequencies of any pair of assemblages within an ordered set, one can rule out most of these trivial solutions. Consequently, as we iteratively search for possible assemblages that can be added to either end of an existing one, we can rule out all of the possibilities that are too dissimilar for consideration. This step allows us to ignore comparisons between assemblages and reduce our search space. 
+
+Of course, establishing a continuity threshold requires user input and which means that the search space is partially shaped by the researcher.  We always implicitly choose a threshold when we choose the set of assemblages to include in our seriation, by selecting some assemblages in an area and not others. Making this step explicit and thus amenable to automation and statistical evaluation, here we specify the maximum discontinuity allowable within a set of assemblages that can be considered as directly related to one another. In practice, this means stipulating a maximum frequency difference in any one type or summed for all types. In an ideally generated set of assemblages, the maximal difference between the frequencies of types might be relatively small (e.g., 5\%) since good sampling should ensure continuous change in frequencies. The size of the threshold in many cases will be a reflection of the degree to which the assemblages have sampled the set of events that produced the assemblages in the first place. In most cases, the continuity threshold can be set higher to tolerate bigger gaps in the frequencies, but at the cost of a greater amount of processing required to search for solutions. 
+
+\paragraph{Initial Implementation}
+
+We have coded the IDSS algorithm in Python. Tests of our IDSS implementation show that with artificially generated data in which an a priori solution is known, solutions can be rapidly identified. In Panel A of Figure \ref{fig4}, we show a set of 15 unordered assemblages each with 6 types. Using a threshold of 0.10 (i.e., the maximum search distance are assemblages that have type frequencies of no more than 0.1 difference), the IDSS algorithm was able to locate the optimal seriation order of these assemblages in just over 1470 seconds, using all available computing cores on a 2013-era quad-core computer. Compared to an estimated 22 years for brute force sorting methods (Figure \ref{S1_Fig}), this achievement clearly brings frequency seriation to a position in which it can move from intuitive hand-sorting to automated and systematic analysis at least when the solutions include 20 or fewer assemblages. Twenty or so assemblages is a common scale of analysis, at least for many archaeological cases conducted within local regions, and it is important for a deterministic frequency seriation algorithm to be able to produce optimal solutions for this scale of data, on commonly available hardware. In particular, many large sets of assemblages break down into much smaller subsets when ordered deterministically and thus can be analyzed quickly. Solutions with larger numbers of assemblages or few solution subsets, however, require carefully setting the maximum differences between assemblages and possibly using a computing cluster to further parallelize the evaluation of solutions. 
+
+\begin{figure}[h]
+\caption{{\bf Example of the results of seriation in traditional (A) and graph form (B).}}
+\label{fig4}
+\end{figure}
+
+
+\paragraph{Graphical Representation}
+
+Figure \ref{fig4}, Panel A represents the traditional graphic form for seriations in which the width of the horizontal bars represents the magnitude of the frequencies of types for individual assemblages. Graphs, a collection of vertices and edges, provide an alternative means of visualization that accommodate linear orderings as well as more complex relations \cite{Diestel2010,Flament1963,Harary1969,Lipo2005,Wasserman1994}. We can create a graph representation of our seriation results by connecting assemblages via edges in the sequence produced by the IDSS algorithm (Panel B, Figure \ref{fig4}). This simple graphic informs us about the relations between assemblages without the addition of the information regarding the composition of the types. The graph representation allows has an advantage over traditional centered-bar diagrams since it allows us to examine relations where assemblages may be shared in multiple valid solutions \cite{Cochrane2010,Lipo2005}.    
+The ability of graphs to reflect complex set of relationships, however, can result in difficult interpretation of the results. The strength of seriation is that solutions are linear relations where the order reflects some combination of differences in time and space. However, if assemblages are found in more than one solution, additional analytic steps must be taken to reduce the results to something that can serve as a hypothesis about the structure of transmission and the relations between assemblages. As shown in Figure \ref{fig5}, we can proceed by “adding” valid solutions, and then pruning unnecessary edges.  We begin, at the top, with three valid solutions, output from the basic IDSS algorithm.  Each meets the criteria for unimodality and are within the tolerance limits for maximum frequency differences.  In the middle of the figure, we show the results of “adding” the graphs together, where an edge exists between two vertices if those vertices possess an edge in any of the three source graphs.  The weights assigned to edges are proportional to the summed differences in type frequencies between pairs of assemblages.  This “summed” graph allows us to construct the final solution. We follow the approach described by \cite{Lipo2005}, starting with just the vertices, and iteratively adding edges from the summed graph starting with those which possess the lowest weight as measured by Euclidian distance between pairs of assemblages. This process produces a graph that includes all the vertices but using the minimum number of edges that represent smallest distances between vertices and includes all equivalent values as options.
+
+
+\begin{figure}[h]
+\caption{{\bf Seriation results when more than one solution is possible within a set of assemblages.} In this example, we begin with three valid seriation solutions (1-3) for the same set of 9 assemblages (A-I). Here, the thickness of the edges reflects the summed differences in frequencies between each pair of assemblages. The seriation solutions are then added together to create a summed solution consisting sum of edges from the individual graphs. From the sum of the solutions, we reduce the graph to include the fewest edges that can be made between all vertices. This reduction step involves constructing a graph starting with the edges that have the smallest weight, as calculated by the sum of the differences in frequencies. Edges that include new vertices are added sequentially until all of the connected vertices are included. Edges with equivalent weight values are included.}
+\label{fig5}
+\end{figure}
+
+
+As an example, Figure \ref{fig6} represents a case in which a set of assemblages that initially represent a single lineage with a single temporal order branches into two sub-populations, each having valid seriation orders. Such a scenario might happen, for example, if a group of individuals who begin by exchanging information later become two distinct but smaller populations that only interact locally, or when single location serves as a center node for two or more relatively separate sub-populations. In this scenario (Figure \ref{fig7}), we discover that there 8 possible valid seriations. In a traditional representation of this seriation we would be forced to show each solution separately and note textually or in captions that some assemblages are included in multiple seriations. Using a graph representation and the process described above, however, we can easily reveal a pattern of relations in which the seriation branches into two different paths (Figures \ref{fig8} and \ref{fig9}).   Note that the graph in Figure \ref{fig8} is complex, but it was constructed using the same steps as in Figure \ref{fig5}, and represents the minimum set of weighted edges which capture the smallest “weighted distance” between vertices.  It represents, in this way, the minimal hypothesis about intensity of transmission and trait sharing needed to account for the observed pattern of frequencies. 
+
+\begin{figure}[h]
+\caption{{\bf Frequency seriation of assemblages that comprise a branching lineage.} The “-A” and “-B” series assemblages can all be seriated along with the first 5 assemblages but cannot be seriated as a single set without violations of the model.}
+\label{fig6}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf Set of all valid seriation solutions in (A) traditional and (B) graph format.} Each of these orders is a valid deterministic frequency seriation solution.}
+\label{fig7}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf Sum of deterministic frequency seriation solutions in graph form.} This figure consists of the sum of the edges and vertices in all of the valid seriation solutions in the graphs. The widths of the edges are proportional to the number of times the pair appears in the set of solutions.}
+\label{fig8}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf The final graph representation of the ‘branching’ example in Figure 
+\ref{fig8} that includes seriation relationships for all assemblages added in the order of the smallest distances between pairs.} The width of the edges is proportional to the summed frequency differences between the types in each pair of assemblages. }
+\label{fig9}
+\end{figure}
+
+
+\paragraph{Statistical Evaluation}
+
+In generating valid seriations that reflect variability in the archaeological record related to inheritance, we assume that the assemblages are described with sufficient stylistic classes \cite{Dunnell1978,Lipo2001} to avoid problems of closed arrays \cite{McNutt1973}.  We also assume that the assemblages have been evaluated in term of minimum sample size requirements. Sample sizes must be great enough to ensure a minimum of statistical confidence in the frequencies of classes – otherwise the frequencies may reflect a lack of proper sampling and not the character of the archaeological record. Early culture historians used a fixed number such a 50 to be the minimum size required \cite{Phillips1951}. Better are bootstrap tests that are sensitive to aspects of assemblage richness and diversity \cite{Cochrane2003,Lipo1997Population}. 
+
+Even when minimum sample size requirements are met, the comparisons between any pair of assemblages must be evaluated in terms of statistical reliability. The larger the sample size, the greater the confidence one has that the patterns between the frequencies of classes reflects the archaeological record and not the happenstance configuration of the sample’s description or circumstances. This uncertainty propagates through the entire seriation order: all solutions obtained have statistical confidence based on the strength of the pattern between the pairs of assemblages. 
+
+To specify the statistical confidence of our seriation solution, we can construct confidence limits for the frequencies of individual classes. These confidence intervals then serve as the basis for assessing the strength of the pattern of frequencies. In terms of statistical models, a set of proportions from M classes is a sample from a multinomial distribution with M categories. Calculating confidence intervals for multinomial proportions is remarkably complex and there is not an exact method that is generally recognized. When the number of classes is “large” (i.e., $M > 10$), the Glaz and Sison \cite{Glaz1999} method is generally thought to be the best, while $M < 10$, Goodman's method \cite{Goodman1965} is preferred. Since assemblages can vary in how many classes are represented, a better method is to use a bootstrap means for calculating the values for the bootstrap confidence intervals at a requested significance level for each pair of assemblages. This step consists of creating a large number of new bootstrap assemblages with the same sample size by resampling the original assemblage with replacement. In our implementation of IDSS, we calculate class frequencies for each of the bootstrapped assemblages. Using the pool of assemblages as the basis for the distribution of frequencies, we then determine the limits of the confidence intervals for the designated level of significance ($\alpha$).
+
+We can then use bootstrap confidence limits when we make comparisons of frequencies between assemblages during the iterative assemblage testing steps. The differences between frequency classes must exceed the limits of the confidence interval in order for the pairs of assemblages to be evaluated having frequencies as “greater than” or “less than” one another. All comparisons in which frequencies values fall within the confidence intervals are scored as “matching.” Since matching frequencies do not violate the assumptions of the frequency seriation model, this process has the effect of creating a greater number of valid solutions all of which are statistically valid orders at a given level of significance. Figures 10 and 11 provide an example of how bootstrapped confidence intervals can produce different solutions than using direct frequency comparisons especially when sample sizes of the assemblages or differences in frequencies being compared are small.
+
+\begin{figure}[h]
+\caption{{\bf Example set of assemblages that cannot be seriated together due to a violation in the distribution of frequencies.} Assemblage 6 lacks material of Type 1 and thus is not continuous with Assemblage 5 and 7.  }
+\label{fig10}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf The graph solutions include for the assemblages in Figure \ref{fig10} using the process described in Figure \ref{fig5}}. In A, the seriations are created through direct comparison of the frequency values. In B, the seriations are created through statistical comparisons using bootstrapped confidence intervals for the type frequencies ($\alpha = 0.001$). When confidence intervals are considered, there are a greater number of possible valid solutions. As a result, we can find the longest solution that meets our specified level of significance.}
+\label{fig11}
+\end{figure}
+
+
+
+% Results and Discussion can be combined.
+\section*{Results}
+
+
+\subsection*{Example From Phillips, Ford And Griffin (1951) And Lipo (2001)}
+
+Archaeological research conducted in the Lower Mississippi Valley (LMV) provides a useful example of how the concepts behind cultural transmission form the basis for generating explanations, and no better case study exists than the long-term efforts of Phillips and his colleagues \cite{Phillips1951}. Through a series of surface collections of decorated prehistoric ceramics and the use of seriation to order assemblages through time, this work provided a remarkably solid chronological framework for the Mississippi River valley and established the region as one of the primary foci of American archaeology \cite{lyman1997rise,o1998james,o1998brief}. 
+
+Using a subset of data from the LMV assemblages and new ceramic collections from seven deposits in northeastern Arkansas \cite{Lipo1997Population,Lipo2001a} and shown in Table \ref{table1}, Lipo used seriation-based techniques and simulations of cultural transmission to account for patterns of stylistic similarity in varying spatial and temporal configurations among 20 late prehistoric locations.  Through his analysis, Lipo \cite{Lipo2001a,Lipo2008} demonstrated that data generated from the original collections are well suited for examining transmission. 
+
+\begin{sidewaystable}[!ht]
+%\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\caption{
+{\bf Late Prehistoric Ceramic Assemblages from the Memphis and St. Francis areas as described by Lipo \cite{Lipo2001a} and Phillips et al. \cite{Phillips1951}.} Analyses by Lipo demonstrate that these assemblages have adequate sample size, classification consistency, no sherd size effects, and depositional environment equivalence.}
+
+%\begin{tabulary}{\textwidth}{ | l | l | l | l | l | l | l | l | l | l | l | }
+\begin{tabulary}{\textheight}{LLLLLLLLLLL}
+\hline
+	 & Parkin Punctate & Barton/Kent/MPI & Painted & Fortune Noded & Ranch Incised & Walls Engraved & Wallace Incised & Rhodes Incised & Vernon Paul Applique & Hull Engraved \\ \hline
+	10-P-1 & 39 & 62 & 46 & 0 & 0 & 0 & 0 & 0 & 0 & 6 \\ \hline
+	11-N-9 & 528 & 198 & 13 & 0 & 19 & 0 & 0 & 0 & 0 & 0 \\ \hline
+	11-N-1 & 865 & 323 & 59 & 17 & 35 & 0 & 0 & 0 & 4 & 0 \\ \hline
+	11-O-10 & 404 & 208 & 6 & 16 & 4 & 0 & 0 & 0 & 0 & 0 \\ \hline
+	11-N-4 & 764 & 470 & 18 & 5 & 9 & 0 & 0 & 0 & 0 & 0 \\ \hline
+	13-N-5 & 35 & 11 & 33 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+	13-N-4 & 71 & 67 & 96 & 0 & 3 & 4 & 0 & 0 & 0 & 0 \\ \hline
+	13-N-16 & 42 & 56 & 69 & 0 & 1 & 3 & 0 & 0 & 0 & 0 \\ \hline
+	13-O-11 & 35 & 65 & 24 & 0 & 0 & 2 & 0 & 1 & 0 & 1 \\ \hline
+	13-O-10 & 61 & 74 & 79 & 0 & 2 & 8 & 0 & 2 & 0 & 0 \\ \hline
+	13-P-1 & 244 & 40 & 18 & 1 & 16 & 21 & 0 & 14 & 0 & 6 \\ \hline
+	13-P-8 & 83 & 25 & 43 & 0 & 18 & 17 & 0 & 3 & 0 & 3 \\ \hline
+	13-P-10 & 30 & 15 & 12 & 0 & 12 & 12 & 0 & 7 & 2 & 1 \\ \hline
+	13-O-7 & 590 & 498 & 67 & 10 & 21 & 19 & 12 & 8 & 7 & 1 \\ \hline
+	13-O-5 & 923 & 637 & 42 & 12 & 33 & 27 & 15 & 13 & 5 & 2 \\ \hline
+	13-N-21 & 426 & 69 & 105 & 4 & 4 & 0 & 1 & 4 & 1 & 0 \\ \hline
+	12-O-5 & 204 & 156 & 42 & 7 & 8 & 4 & 2 & 1 & 0 & 0 \\ \hline
+	Holden Lake & 27 & 294 & 7 & 24 & 2 & 0 & 2 & 1 & 3 & 0 \\ \hline
+	13-N-15 & 728 & 364 & 160 & 9 & 5 & 8 & 14 & 3 & 7 & 2 \\ \hline
+	12-N-3 & 549 & 328 & 77 & 19 & 4 & 0 & 3 & 1 & 2 & 0 \\ \hline
+\end{tabulary}
+
+\label{table1}
+%\end{adjustwidth}
+\end{sidewaystable}
+
+
+
+
+In his analysis, Lipo  \cite{Lipo2001a,Lipo2008} constructed deterministic seriations for the assemblages using a manual graphical technique and found that the no single solution could be obtained using the 20 assemblages. Instead, the set of assemblages had to divided into 8 different spatial groups (Figure 12-13). These groups reflected the effects of local transmission among communities that overwhelms the effects of longer-range interaction within the region. Interestingly, two valid seriation solutions in the “Parkin” area (Groups 2 and 3 in Figure 12) overlap with one another in that they both share the assemblage 11-N-1, the Parkin site. Lipo \cite{Lipo2001a} explained this result as the effect of Parkin acting as a central “node” in a network and possibly indicative of emerging social complexity among otherwise functionally redundant settlements. 
+
+\begin{figure}[h]
+\caption{{\bf The set of deterministic frequency seriations created by hand sorting by Lipo \cite{Lipo2001a}  in the Memphis and St. Francis areas of the Lower Mississippi River Valley Survey \cite{Phillips1951}.} Here, the assemblages have been standardized in terms of type descriptions and are all of sufficient sample sizes. The error bars indicate the 99\% confidence interval for the type frequencies. The largest seriation solutions formed eight spatial sets. The assemblage from Parkin (11-N-1) falls into two different sets, suggesting that it served as a central node of interaction between communities. The Holden Lake assemblage appears as a valid addition to all of the seriation suggesting that it is earlier than the other samples in the analysis.}
+\label{fig12}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf Spatial distribution of seriation groups with St. Francis and Memphis Assemblages consisting of Lipo \cite{Lipo2001a} and Phillips et al. \cite{Phillips1951} samples.} Labels for groups refer to seriation solutions numbered in Figure \ref{fig12}. While each group also includes Holden Lake, this assemblage is removed here for visual clarity.}
+\label{fig13}
+\end{figure}
+
+
+While Lipo’s result demonstrates the potential for seriation as a means of explaining patterns of cultural transmission, the results and the approach as a whole are limited in practical utility for a number of key reasons. First, the seriation results were created by hand sorting following graphic methods outlined by Ford \cite{Ford1949,Phillips1951} though assisted using spreadsheet macros in Microsoft Excel. Consequently, we have no way of knowing whether the final sets of orders are the largest set or whether all possible solutions are represented. Second, while Lipo ensured that the assemblage sizes were adequate for comparisons of richness and diversity, we cannot specify the confidence interval around the final set of solutions chosen. Finally, the use of frequency graphs as the graphical representation for the set of solutions reveals the limitation of the visualization.  While, Lipo demonstrated how seriation orders overlapped or intersected with one another and that this overlap potentially allows one to infer information about prehistoric social structure, the frequency bar graph is incapable of representing anything other than linear orders. This limitation impacts the degree to which the approach can be systematically applied, especially as cases become increasingly complex. 
+
+\subsection*{IDSS Analysis of PFG Assemblages}
+
+Using the IDSS analysis we can systematically produce the full set of possible frequency seriation solutions (Figures \ref{fig14} -- \ref{fig20}). Despite the large number of possible solutions ($N = 2.56\ensuremath{\times 10^{18}}$), iteratively finding the maximum set of solutions required less than two seconds of processing due to the fact that the largest possible seriations were composed of only 4 assemblages. No larger sets can be built without introducing violations of unimodality, so the algorithm did not need to continue its search and terminated. Using a confidence interval of 0.995\% allowed us to generate a solution that included all assemblages. 
+The results of the seriation analysis reflect many of the features of the original analysis but add additional details regarding the structure of interaction between communities. Most notably, the pattern of the seriation solutions is strongly spatial: assemblages are more likely to be linked to neighbors than others farther away (Figure \ref{fig20}). To assess statistical significance of the spatial pattern is greater than chance, we resampled the original set of assemblages, and calculated the sum of the distances between the pairs. Doing this 1000 times provided a probability distribution against which we compared the original results. In the case of the IDSS results, we estimated p=0.04 which suggests that the spatial pattern is statistically significant.
+
+\begin{figure}[h]
+\caption{{\bf The largest set of valid frequency seriation solutions created using the IDSS algorithm for the St. Francis and Memphis area assemblages as described by Lipo \cite{Lipo2001a}.}}
+\label{fig14}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf Graph representation of all seriation solutions for the St. Francis and Memphis assemblages summed together.} The width of the edges reflects a measure of differences between assemblages calculated as the sum of the differences of frequencies between types. Not all of the assemblages can be added to the set of solutions as shown by the vertices without edges.}
+\label{fig15}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf The graph created from the sum of the deterministic frequency seriation solutions for the St. Francis and Memphis area assemblages.}}
+\label{fig16}
+\end{figure}
+
+
+\begin{figure}[h]
+\caption{{\bf All of the valid deterministic frequency seriation solutions for the Memphis and St. Francis area assemblages using a 0.995\% confidence intervals ($\alpha = 0.005$) for frequency comparisons.} The confidence intervals for each assemblage are determined using 1000 bootstrap samples for each pair of assemblages. }
+\label{fig17}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf Graph representation of the sum of all valid deterministic frequency seriations solutions generated the IDSS algorithm (Figure \ref{fig17}) and using 0.995\% confidence intervals ($\alpha=0.005$) for the comparison of frequencies.} }
+\label{fig18}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf Graph for the valid deterministic frequency seriations solutions generated the IDSS algorithm using 0.995\% confidence intervals ($\alpha=0.005$) for the comparison of frequencies and using the procedure describe in Figure \ref{fig5}.} Parkin (11-N-1) forms the center of a branch that extends in 3 different directions (to 11-N-9, 13-P-1 and 11-O-10). 13-O-7 and 13-O-10 also have this same configuration. 13-O-7 has an extra branch leading to Holden Lake, a presumably earlier deposit. }
+\label{fig19}
+\end{figure}
+
+\begin{figure}[h]
+\caption{{\bf The spatial distribution of the edges of graph shown in Figure \ref{fig19}.} Note that the edges have a strong spatial pattern in that vertices next to each other are more likely to be paired in seriation solutions than those that are farther away. A bootstrap assessment of the significance of this spatial pattern shows that $p=0.04$.  Spatial groups of assemblages for the PFG. The groups outlines represent the set of assemblages that are linked to their nearest neighbors.}
+\label{fig20}
+\end{figure}
+
+There are significant differences from the original seriation analyses. First, we can now see the continuous nature of the interaction: while there are locally connected sets of assemblages the seriation solutions grow increasingly inclusive over space as one includes more assemblages with few indications of discontinuity. In Figure \ref{fig21}, we have created arbitrary groups composed of those sets of assemblages connected to their nearest neighbor. Divisions between the groups are identified by edges connect assemblages beyond the nearest neighbor distance. The seriation orders reflect the pattern in which assemblages form spatial sets in which are in turn related to each other at higher scales of analyses.
+
+This pattern is exemplified by Group 1 in Figure \ref{fig20} is composed of a single set of assemblages that fall northeast of 11-N-1 (Parkin). Parkin remains a member of more than seriation solution with branches going to 11-N-9 (Group 1a) and 11-O-10/11-N-4 (Group 1b). Interestingly, on the basis of these new analyses Rose Mound (12-N-3) now appears to be more closely related to the southeastern Group 2 rather than being part of the group with Parkin. This configuration might explain the proximity of the two large deposits so close together. We propose that this set of archaeological deposits were created by separate lineages whose use of the landscape is focused in different directions: Parkin towards the north and Rose Mound to the south. Alternatively it may reflect use of the landscape by groups over slightly varying points in time. Further study regarding the relations between these deposits is needed.
+
+Group 2 includes assemblage 13-P-1, 13-P-10 and 13-N-21 on the east side of the valley. The inclusion of 13-N-21 here can be potentially explained by independent knowledge that the deposit is significantly earlier than the other assemblages, the outcome of a lack of intermediate assemblages from the study or by the movement of populations from one community to the other. The same set of hypotheses can be built for the relation of 10-P-1 though in this case the lack of additional local assemblages around the deposit is the most likely case. Assemblage 13-P-1 shares solutions in the same way in which 11-N-1 does in Group 1. 
+
+The assemblages located in the south and southwestern portions of the study area (Group 3 in Figure 20) form a large group in which the likelihood of falling into a solution decreases with distance. The assemblages form two subsets (3a and 3b) that overlap with 13-O-7. Like 11-N-1 and 13-P-1, 13-O-7 forms a central node with overlapping seriations, one to the south and one to the north. 
+
+The fact that each of the groups of locally interacting assemblages also includes an assemblage that is found in multiple overlapping seriation solutions lends weight to the notion that patterns of interaction reflected in the frequencies of decorated pottery types is informing on the social relations within these communities. Overall, the distance between neighboring communities structures interaction between populations. Interaction, in other words, has a strong “nearest-neighbor” quality. A few communities, however, do not follow this pattern and exhibit evidence of greater interaction throughout the region regardless of their distance to other localities. This pattern is likely the consequence of hierarchical organization to the cultural transmission patterns among such communities, and potentially represents the beginnings of more complex social organization \cite{Lipo2001a,Lipo2008}. 
+
+Significantly, the spatial pattern of the nearest neighbor groups (Figure \ref{fig20}) generally matches the pattern observed in Figure \ref{fig2} showing the results hierarchical cluster analysis of the correspondence analysis for the same data set but with greater detail. Unlike correspondence analysis where the output is a statistically generalization of the assemblages, the IDSS results are theory-driven and allows us to relate a seriation to actual transmission events. Additionally, the IDSS algorithm provides a means of distinguishing the within-group temporal relations from the between-group spatial ones.
+
+\section*{Discussion}
+
+Deterministic frequency seriation has a long history in archaeological research. Indeed, it is one of the few unique analytical tools developed wholly within archaeology. Much of the success of the discipline in the first half of the 20th century is derived from the use of seriation and the culture historical concepts associated with sorting observations through time. Beginning in the 1960s, a growing fascination with numerical techniques and spatial reconstructions resulted in the perception that the utility of deterministic frequency seriation was regarded as a non-systematic and outdated ``dating'' technique that was been generally superseded by radiocarbon chronometrics.
+
+The demise of seriation as a central tool of archaeological inquiry comes from our lack of theoretical rationale and an automated means of systematically generating solutions, along with a rising interest in cultural reconstruction rather than matters of chronology. Similarity-based approaches have largely served to solve chronological issues at the cost of seriation’s connection to archaeological theory. While numerical techniques offer fast ways of producing orders, the degree to which they rely on simple similarity matrix ordering and discarded the more detailed requirements of the original deterministic frequency seriation method made their products largely useless and this lack of effectiveness stymied the development of seriation as a method. And the growing dissatisfaction was quite reasonable: if the method cannot be guaranteed to produce any specific knowledge or if it depends on unknown or even incorrect assumptions, there is little value to be gained from its use. 
+
+Theoretical developments of the last 20 years have started to provide a theoretical basis for the method \cite{Dunnell1978,Lipo1997Population,Lipo2001,Lipo2001a,Lyman2001,Neiman1995,Teltser1995}. Seen as a general means for studying transmission that provides temporal orders under particular empirical and measurement conditions, deterministic frequency seriation has great potential. This potential, however, has been ultimately hindered by the legacy techniques used to implement the method. Hand sorting descriptions of assemblages, while faithful to a minimum set of underlying theoretical requirements, is simply impractical, difficult to evaluate and limited in statistical rigor. 
+
+The approach presented here by the IDSS algorithm certainly does not solve all the problems inherent in deterministic frequency seriation. We need a greater understanding of the relations between the structure of classification used to measuring artifacts and the patterns generated by these descriptions. We also need the development of techniques that can handle arbitrarily large sets of assemblages through some combination of careful parsing of valid analytic sets, massive parallelization, or clever sorting algorithms. Ideally, we should be able to run deterministic frequency seriation analyses on sets of assemblages and then evaluate the results as a function of varying classification strategies, sample sizes and other sources of input. For each source of arbitrary input in the method, we should be able to we evaluate the degree to which those choices influence the structure and character of the results. And we should be able to more tightly link our results to the theoretical rationale that forms the method. For example, what happens if we eliminate the need for unimodality as a sorting criterion? How do assemblages representing different durations affect the structure of outcomes and can we use patterns observed in seriation results to detect duration?  Do particular regional models of transmission yield particular patterns in the resulting seriation solutions?   Such questions point to new areas of research that are opened up by having an algorithmic means of generating deterministic frequency seriation solutions.
+
+The IDSS algorithm reflects an opportunity to achieve some of the promise of seriation as suggested by earlier efforts. Our preliminary results suggest we can avoid many of the limitations of deterministic frequency seriation as traditionally done yet add needed features such as statistical evaluation, automation and the potential for complex patterns of interaction which blend factors of time and space. The example from the Lower Mississippi River Valley survey illustrates these features and indicates the potential of the developments to come. 
+
+\clearpage
+\section*{Supporting Information}
+
+% Include only the SI item label in the subsection heading. Use the \nameref{label} command to cite SI items in
+
+\subsection*{S1 Fig}
+\label{S1_Fig}
+{\bf Number of total solutions with multiple seriation groups and processing time for sets of assemblages $4 < N < 100$, testing solutions across a computer with 64 cores.}   Once the number of assemblages is greater than 14, brute force methods requiring one to search all possible options clearly becomes impossible even with the fastest available computers working in parallel. 
+
+%\includegraphics[scale=0.6]{Figure_S1.eps}
+
+\subsection*{S2 Text}
+\label{S2_Text}
+{\bf Pseudo-code representation of the IDSS algorithm.}
+
+\begin{algorithm}[h]
+\caption{Algorithm for IDSS seriation}\label{alg:idss}
+\begin{algorithmic}[1]
+
+ \Require  Input file $I$ format:  
+ \State Tab-delimited text, column 0 contains assemblage name
+ \State Remaining columns contain type counts as integers
+
+\Procedure{IDSS}{$I$}
+   
+   \State Read input file $I$
+   \State Calculate relative frequency of each type
+   \State Calculate max frequency difference between assemblage pairs
+   \State Create list of assemblages $A$
+    
+    \ForAll{triplets of assemblages $T$}
+        \If{using continuity threshold $t_c$}
+            \If{max frequency difference $> t_c$ for pairs $\in T$}
+            \State Skip triplet
+            \EndIf
+        \EndIf
+
+        \If{triplet $T$ is valid given unimodality for all types}
+            \State Store triplet in candidate solutions $\mathbf{C}$
+        \EndIf
+
+        
+
+        \State $R \gets$ assemblages $\notin \mathbf{C}$  
+        \Comment Remaining assemblages
+        
+
+        \Repeat
+            \ForAll{assemblages $ a \in R$}
+                \If{using continuity threshold $t_c$}
+                    \If{max freq difference $> t_c$ for $a$ and all $\mathbf{C}$}
+                        \State Skip assemblage $a$ for this loop
+                    \EndIf
+                \EndIf
+                
+                \If{assemblage $a$ + candidate solution $c \in \mathbf{C}$}
+                    \State Replace $c$ in $\mathbf{C}$ with $c+a$
+                    \State Remove $a$ from $R$
+                    \Comment Grow existing solutions
+                \EndIf
+            
+            \EndFor        
+            
+        \Until{ $R = \empty$ or loop repeats with no changes }
+
+            \ForAll{candidate solutions $c \in \mathbf{C}$}
+                \If{$c$ is strict subset of another solution in $\mathbf{C}$}
+                    \State Remove $c$ from $\mathbf{C}$
+                \EndIf
+            \EndFor
+
+    \EndFor
+    \Comment $\mathbf{C}$ now contains the set of solutions
+    
+    \State Output $\mathbf{C}$ in various formats
+    
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+
+% Do NOT remove this, even if you are not including acknowledgments.
+\section*{Acknowledgments}
+The authors (CPL, MEM) acknowledge the role that RCD played in the formulation of this paper in the years prior to his death in 2010. In addition to providing the background text, RCD contributed to many discussions regard the requirements of a seriation method. The authors would also like to thank Mary Dunnell for providing access to RCD’s notes and research materials. 
+
+\nolinenumbers
+\clearpage
+%\section*{References}
+% Either type in your references using
+% \begin{thebibliography}{}
+% \bibitem{}
+% Text
+% \end{thebibliography}
+%
+% OR
+%
+% Compile your BiBTeX database using our plos2009.bst
+% style file and paste the contents of your .bbl file
+% here.
+% 
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{lyman1997rise}
+Lyman R, O'Brien M, Dunnell R (1997) The rise and fall of culture history.
+\newblock Springer.
+\bibAnnoteFile{lyman1997rise}
+
+\bibitem{Beals1945}
+Beals RL, Brainerd GW, Smith W (1945) Archaeological studies in northeast
+  arizona.
+\newblock University of California Publications in American Archaeology and
+  Ethnology 44.
+\bibAnnoteFile{Beals1945}
+
+\bibitem{Bluhm1951}
+Bluhm E (1951) Ceramic sequence in central basin and hopewell sites in central
+  illinois.
+\newblock American Antiquity 16: 301-312.
+\bibAnnoteFile{Bluhm1951}
+
+\bibitem{Evans1955}
+Evans C (1955) A ceramic study of Virginia Archaeology.
+\newblock Washington: BAE Bulletin 160.
+\bibAnnoteFile{Evans1955}
+
+\bibitem{Ford1949}
+Ford JA (1949) Cultural dating of prehistoric sites in Viru Valley, Peru,
+  volume~43 of \emph{Anthropological Papers}.
+\newblock New York: American Museum of Natural History.
+\bibAnnoteFile{Ford1949}
+
+\bibitem{Kidder1917}
+Kidder AV (1917) A design sequence from new mexico.
+\newblock Proceedings of the National Academy of Sciences 3: 369-370.
+\bibAnnoteFile{Kidder1917}
+
+\bibitem{Mayer-Oakes1955}
+Mayer-Oakes WJ (1955) Prehistory of the Upper Ohio Valley: A Introductory
+  Study.
+\newblock Pittsburgh: Carnegie Museum, Annals Vo. 34.
+\bibAnnoteFile{Mayer-Oakes1955}
+
+\bibitem{Meggers1957}
+Meggers BJ, Evans C (1957) Archaeological investigation in the mouth of the
+  Amazon.
+\newblock Washington: Bureau of American Ethnology, Bulletin 167.
+\bibAnnoteFile{Meggers1957}
+
+\bibitem{Phillips1951}
+Phillips P, Ford JA, Griffin JB (1951) Archaeological Survey in the Lower
+  Mississippi Alluvial Valley, 1940-1947, volume~25.
+\newblock Cambridge: Peabody Museum, Harvard University.
+\bibAnnoteFile{Phillips1951}
+
+\bibitem{Rouse1939}
+Rouse IB (1939) Prehistory in Haiti: A Study in Method.
+\newblock New Haven: Yale University Publications in Anthropology, No. 21.
+\bibAnnoteFile{Rouse1939}
+
+\bibitem{Smith1950}
+Smith CS (1950) The archaeology of coastal New York.
+\newblock New York: American Museum of Natural History, Anthropological Papers
+  43(2).
+\bibAnnoteFile{Smith1950}
+
+\bibitem{Michels1972}
+Michels JW (1972) Dating methods in archaeology.
+\newblock Annual Review of Anthropology 1: 113-126.
+\bibAnnoteFile{Michels1972}
+
+\bibitem{Wikipedia.com2014}
+Wikipedia (2014) Seriation.
+\newblock \urlprefix\url{http://en.wikipedia.org/wiki/Seriation_(archaeology)}.
+\bibAnnoteFile{Wikipedia.com2014}
+
+\bibitem{Arangala2013}
+Arangala C, Lee TJ, Borden C (2013) Seriation algorithms for determining the
+  evolution of the star husband tale.
+\newblock Involve, a Journal of Mathematics 7: 1-14.
+\bibAnnoteFile{Arangala2013}
+
+\bibitem{Buetow1987}
+Buetow K, Chakravarti A (1987) Multipoint gene mapping using seriation. i.
+  general methods.
+\newblock The American Journal of Human Genetics 49: 423-440.
+\bibAnnoteFile{Buetow1987}
+
+\bibitem{Muller1983Geographic}
+Muller JC (1983) Geographic seriation revisited.
+\newblock The Professional Geographer 35: 196-202.
+\bibAnnoteFile{Muller1983Geographic}
+
+\bibitem{smith1996seriation}
+Smith B, et~al. (1996) Seriation: An implementation and case study.
+\newblock Computers, environment and urban systems 20: 427--438.
+\bibAnnoteFile{smith1996seriation}
+
+\bibitem{Dunnell1978}
+Dunnell RC (1978) Style and function: a fundamental dichotomy.
+\newblock American Antiquity 43: 192-202.
+\bibAnnoteFile{Dunnell1978}
+
+\bibitem{Dunnell1982}
+Dunnell RC (1982) Science, social science and common sense: the agonizing
+  dilemna of modern archaeology.
+\newblock Journal of Anthropological Research 38: 1-25.
+\bibAnnoteFile{Dunnell1982}
+
+\bibitem{Neiman1995}
+Neiman FD (1995) Stylistic variation in evolutionary perspective: inferences
+  from decorative diversity and interassemblage disstance in illinois woodland
+  ceramic assemblages.
+\newblock American Antiquity 60: 7.
+\bibAnnoteFile{Neiman1995}
+
+\bibitem{Driver1932}
+Driver HE, Kroeber AL (1932) Quantiative expression of cultural relationships.
+\newblock University of California Publications in American Archaeology and
+  Ethnology 31: 211-256.
+\bibAnnoteFile{Driver1932}
+
+\bibitem{Eerkens2005}
+Eerkens JW, Lipo CP (2005) Cultural transmission, copying errors, and the
+  generation of variation in material culture and the archaeological record.
+\newblock Journal of Anthropological Archaeology 24: 316-334.
+\bibAnnoteFile{Eerkens2005}
+
+\bibitem{Eerkens2007}
+Eerkens JW, Lipo CP (2007) Cultural transmission theory and the archaeological
+  record: providing context to understanding variation and temporal changes in
+  material culture.
+\newblock Journal of Archaeological Research 15: 239-274.
+\bibAnnoteFile{Eerkens2007}
+
+\bibitem{Harpole2002}
+Harpole J, Lyman RL (2002) Changes in the fashion of women's bonnets,
+  1831-1895.
+\newblock Missouri Archaeologist 63: 21-30.
+\bibAnnoteFile{Harpole2002}
+
+\bibitem{Kroeber1919}
+Kroeber AL (1919) On the principle of order in civilization as exemplified by
+  changes of fashion.
+\newblock American Anthropologist 21: 235-263.
+\bibAnnoteFile{Kroeber1919}
+
+\bibitem{Lipo1997Population}
+Lipo CP, Madsen ME, Dunnell RC, Hunt T (1997) Population structure, cultural
+  transmission, and frequency seriation.
+\newblock Journal of Anthropological Archaeology 16: 301 - 333.
+\bibAnnoteFile{Lipo1997Population}
+
+\bibitem{Lipo2001}
+Lipo CP, Madsen ME (2001) Neutrality, "style," and drift: building methods for
+  studying cultural transmission in the archaeological record.
+\newblock In: Hurt TD, Rakita GFM, editors, Style and Function: Conceptual
+  Issues in Evolutionary Archaeology, Westport, Connecticut: Bergin and Garvey.
+  pp. 91-118.
+\bibAnnoteFile{Lipo2001}
+
+\bibitem{lyman2006seriation}
+Lyman RL, O'Brien MJ (2006) Seriation and cladistics: the difference between
+  anagenetic and cladogenetic evolution.
+\newblock Mapping our ancestors: phylogenetic approaches in anthropology and
+  prehistory : 65--88.
+\bibAnnoteFile{lyman2006seriation}
+
+\bibitem{Mallios2014}
+Mallios S (2014) Spatial seriation, vectors of change, and multicentered
+  modeling of cultural transformations among san diego's historical
+  gravestones: 50 years after deetz and dethlefsen's archaeological doppler
+  effect.
+\newblock Journal of Anthropological Research 70: 69-106.
+\bibAnnoteFile{Mallios2014}
+
+\bibitem{o2000applying}
+O'brien MJ, Lyman RL (2000) Applying evolutionary archaeology: A systematic
+  approach.
+\newblock Springer.
+\bibAnnoteFile{o2000applying}
+
+\bibitem{Rafferty1994}
+Rafferty J (1994) Gradual or step-wise change: the development of sedentary
+  settlement patterns in northeast mississippi.
+\newblock American Antiquity 59: 405-425.
+\bibAnnoteFile{Rafferty1994}
+
+\bibitem{Rafferty2008}
+Rafferty J, Peacock E (2008) The spread of shell tempering in the mississippi
+  black prairie.
+\newblock Southeastern Archaeology 27: 253-264.
+\bibAnnoteFile{Rafferty2008}
+
+\bibitem{Smith2005}
+Smith K, Neiman FD (2005) Frequency seriation, correspondence analysis, and
+  woodland period ceramic assemblage variation in the deep south.
+\newblock Southeastern Archaeology 26: 49-72.
+\bibAnnoteFile{Smith2005}
+
+\bibitem{Teltser1995}
+Teltser PA (1995) Culture history, evolutionary theory, and frequency
+  seriation.
+\newblock In: Teltser PA, editor, Evolutionary Archaeology: Methodological
+  Issues, Tucson: University of Arizona Press. pp. 51-68.
+\bibAnnoteFile{Teltser1995}
+
+\bibitem{Ascher1959}
+Ascher M (1959) A mathematical rationale for graphical seriation.
+\newblock American Antiquity : 212-214.
+\bibAnnoteFile{Ascher1959}
+
+\bibitem{Ascher1963}
+Ascher M, Ascher R (1963) Chronological ordering by computer.
+\newblock American Anthropologist 65: 1045-1052.
+\bibAnnoteFile{Ascher1963}
+
+\bibitem{Brainerd1951}
+Brainerd GW (1951) The place of chronological ordering in archaeological
+  analyis.
+\newblock American Antiquity 16: 301-312.
+\bibAnnoteFile{Brainerd1951}
+
+\bibitem{Kendall1963}
+Kendall DG (1963) A statistical approach to flinders petrie's sequence dating.
+\newblock Bulletin of the International Statistical Institute 40: 657-680.
+\bibAnnoteFile{Kendall1963}
+
+\bibitem{Kendall1969}
+Kendall DG (1969) Some problems and methods in statistical archaeology.
+\newblock World Archaeology 1: 68-76.
+\bibAnnoteFile{Kendall1969}
+
+\bibitem{Kendall1970}
+Kendall DG (1970) A mathematical approach to seriation.
+\newblock Philosophical Transactions of the Royal Society, Series A,
+  Mathematical and Physical Sciences 269: 125-135.
+\bibAnnoteFile{Kendall1970}
+
+\bibitem{Kendall1971}
+Kendall DGa (1971) Seriation from abundance matrices.
+\newblock Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte Gebiete
+  : 214-252.
+\bibAnnoteFile{Kendall1971}
+
+\bibitem{Kuzara1966}
+Kuzara RS, Mead GR, Dixon KA (1966) Seriation of anthropological data: A
+  computer program for matrix-ordering.
+\newblock American Anthropologist 68: 1442-1455.
+\bibAnnoteFile{Kuzara1966}
+
+\bibitem{Matthews1963}
+Matthews J (1963) Application of matrix analysis to archaeological problems.
+\newblock Nature 198: 930-934.
+\bibAnnoteFile{Matthews1963}
+
+\bibitem{Bove2013}
+Bove G (2013) Asymmetric multidimensional scaling models for seriation.
+\newblock In: Giudici P, Ingrassia S, Vichi M, editors, Statistical Models for
+  Data Analysis, New York: Springer International Publishing. pp. 55-62.
+\bibAnnoteFile{Bove2013}
+
+\bibitem{Cowgill1972}
+Cowgill GL (1972) Models, methods, and techniques for seriation.
+\newblock In: Clarke DL, editor, Models in Archaeology, London: Methuen. pp.
+  381-424.
+\bibAnnoteFile{Cowgill1972}
+
+\bibitem{Drennan1976}
+Drennan RD (1976) A refinement of chronological seriation using non-metric
+  multidimensional scaling.
+\newblock American Antiquity 41: 290-302.
+\bibAnnoteFile{Drennan1976}
+
+\bibitem{hodson1970cluster}
+Hodson FR (1970) Cluster analysis and archaeology: some new developments and
+  applications.
+\newblock World Archaeology 1: 299--320.
+\bibAnnoteFile{hodson1970cluster}
+
+\bibitem{Atkins1998Spectral}
+Atkins JE, Boman EG, Hendrickson B (1998) A spectral algorithm for seriation
+  and the consecutive ones problem.
+\newblock SIAM Journal on Computing 28: 297-310.
+\bibAnnoteFile{Atkins1998Spectral}
+
+\bibitem{Buck2000}
+Buck CE, Sahu SK (2000) Bayesian models for relative archaeological chronology
+  building.
+\newblock Journal of the Royal Statistical Society: Series C (Applied
+  Statistics) 49: 423-440.
+\bibAnnoteFile{Buck2000}
+
+\bibitem{Halekoh1999}
+Halekoh UU, Vach W (1999) Bayesian seriation as a tool in archaeology.
+\newblock In: Dingwall L, Exon S, Lafin S, Gaffney V, van Leusen M, editors,
+  Archaeology in the Age of the Internet, Oxford: ArchaeoPress. pp. 107-107.
+\bibAnnoteFile{Halekoh1999}
+
+\bibitem{Halekoh2004}
+Halekoh UU, Vach W (2004) A bayesian approach to seriation problems in
+  archaeology.
+\newblock Computational statistics \& data analysis 45: 651-673.
+\bibAnnoteFile{Halekoh2004}
+
+\bibitem{djindjian1984seriation}
+Djindjian F (1984) Seriation and toposeriation by correspondence analysis.
+\newblock In: To pattern the past: symposium organized by the Commission IV of
+  the International Union of Pre-and Protohistoric Sciences (UISPP), at the
+  University of Amsterdam, Amsterdam, May 1984. Council of Europe, pp.
+  119--135.
+\bibAnnoteFile{djindjian1984seriation}
+
+\bibitem{Neiman1995a}
+Neiman FD, Alcock NW (1995) Archaeological seriation by correspondence
+  analysis: an application to historical documents.
+\newblock History and Computing 7: 1-21.
+\bibAnnoteFile{Neiman1995a}
+
+\bibitem{Peebles2012}
+Peebles MA, Schachner G (2012) Refining correspondence analysis-based ceramic
+  seriation of regional data sets.
+\newblock Journal of Archaeological Science 38: 2818-2827.
+\bibAnnoteFile{Peebles2012}
+
+\bibitem{Wartenberg1987}
+Wartenberg D, Ferson S, Rohlf FJ (1987) Putting things in order: a critique of
+  detrended correspondence analysis.
+\newblock American Naturalist : 434-448.
+\bibAnnoteFile{Wartenberg1987}
+
+\bibitem{Dunnell1970}
+Dunnell RC (1970) Seriation method and its evaluation.
+\newblock American Antiquity 35: 305-319.
+\bibAnnoteFile{Dunnell1970}
+
+\bibitem{Kadane1971}
+Kadane JB (1971) Chronological ordering of archeological deposits by the
+  minimum path length method.
+\newblock Arlington, VA: Center for Naval Analyses.
+\bibAnnoteFile{Kadane1971}
+
+\bibitem{Laporte1978}
+Laporte G (1978) The seriation problem and the travelling salesman problem.
+\newblock Journal of Computational and Applied Mathematics 4: 259-268.
+\bibAnnoteFile{Laporte1978}
+
+\bibitem{Wilkinson1971}
+Wilkinson E (1971) Archaeological seriation and the travelling salesman
+  problem.
+\newblock In: Hodson FR, Kendall DG, Tautu P, editors, Mathematics in the
+  Archaeological and Historical Sciences, Edinburgh: University of Edinburgh
+  Press. pp. 276-283.
+\bibAnnoteFile{Wilkinson1971}
+
+\bibitem{Madsen2014}
+Madsen ME, Lipo CP (2014) Combinatorial structure of the deterministic
+  seriation method with multiple subset solutions.
+\newblock Http://arxiv.org/abs/1412.6060.
+\bibAnnoteFile{Madsen2014}
+
+\bibitem{Lipo2008}
+Lipo CP, Eerkens JW (2008) Culture history, cultural transmission, and
+  explanation of seriation in the southeastern united states.
+\newblock In: Cultural Transmission and Archaeology: Issues and Case Studies,
+  Washington, DC: Society for American Archaeology Press. pp. 120-131.
+\bibAnnoteFile{Lipo2008}
+
+\bibitem{Bellanger2008}
+Bellanger L, Tomassone R, Husi P (2008) A statistical approach for dating
+  archaeological contexts.
+\newblock Journal of Data Science 6: 135-154.
+\bibAnnoteFile{Bellanger2008}
+
+\bibitem{Alberti2013}
+Alberti G (2013) An r script to facilitate correspondence analysis: a guide to
+  the use and the interpretation of results from an archaeological perspective.
+\newblock Archaeologia e Calcolatori 24: 25-53.
+\bibAnnoteFile{Alberti2013}
+
+\bibitem{Lipo2001a}
+Lipo CP (2001) Science, Style and the Study of Community Structure: An Example
+  from the Central Mississippi River Valley.
+\newblock Oxford: British Archaeological Reports, International Series, no.
+  918.
+\bibAnnoteFile{Lipo2001a}
+
+\bibitem{Diestel2010}
+Diestel R (2010) Graph Theory, 4th Edition.
+\newblock Heidelberg: Springer-Verlag.
+\bibAnnoteFile{Diestel2010}
+
+\bibitem{Flament1963}
+Flament C (1963) Applications of Graph Theory to Group Structure.
+\newblock Englewood Cliffs: Prentice-Hall.
+\bibAnnoteFile{Flament1963}
+
+\bibitem{Harary1969}
+Harary F (1969) Graph Theory.
+\newblock Reading: Addison-Wesley.
+\bibAnnoteFile{Harary1969}
+
+\bibitem{Lipo2005}
+Lipo CP (2005) The resolution of cultural phylogenies using graphs.
+\newblock In: Mapping Our Ancestors: Phylogenetic Methods in Anthropology and
+  Prehistory, New York: Aldine Transaction Press. pp. 89-107.
+\bibAnnoteFile{Lipo2005}
+
+\bibitem{Wasserman1994}
+Wasserman S, Faust K (1994) Social Network Analysis: Methods and Applications.
+\newblock Cambridge: Cambridge University Press.
+\bibAnnoteFile{Wasserman1994}
+
+\bibitem{Cochrane2010}
+Cochrane EE, Lipo CP (2010) Phylogenetic analyses of lapita decoration do not
+  support branching evolution or regional population structure during
+  colonization of remote oceana.
+\newblock Philosophical Transactions of the Royal Society B 365: 3889-3902.
+\bibAnnoteFile{Cochrane2010}
+
+\bibitem{McNutt1973}
+McNutt CH (1973) On the methodological validity of frequency seriation.
+\newblock American Antiquity 38: 45-60.
+\bibAnnoteFile{McNutt1973}
+
+\bibitem{Cochrane2003}
+Cochrane GWG (2003) Artefact attribute richness and sample size adequacy.
+\newblock Journal of Archaeological Science 30: 837-848.
+\bibAnnoteFile{Cochrane2003}
+
+\bibitem{Glaz1999}
+Glaz J, Sison CP (1999) Simultaneous confidence intervals for multinomial
+  proportions.
+\newblock Journal of Statistical Planning and Inference 82: 251-262.
+\bibAnnoteFile{Glaz1999}
+
+\bibitem{Goodman1965}
+Goodman LA (1965) On simultanous confidence intervals for multinomial
+  proportions.
+\newblock Technometrics 7: 247-254.
+\bibAnnoteFile{Goodman1965}
+
+\bibitem{o1998james}
+O'Brien M, Lyman R (1998) James A. Ford and the growth of Americanist
+  archaeology.
+\newblock Univ of Missouri Pr.
+\bibAnnoteFile{o1998james}
+
+\bibitem{o1998brief}
+O'Brien MJ, Dunnell RC (1998) A brief introduction to the archaeology of the
+  central mississippi river valley.
+\newblock In: Dunnell RC, O'Brien MJ, editors, Changing Perspectives on the
+  Archaeology of the Central Mississippi River Valley, University of Alabama
+  Press, Tuscaloosa. pp. 1--31.
+\bibAnnoteFile{o1998brief}
+
+\bibitem{Lyman2001}
+Lyman RL (2001) Culture historical and biological approaches to identifying
+  homologous traits.
+\newblock In: Hurt TD, Rakita GFM, editors, Style and Function: Conceptual
+  Issues in Evolutionary Archaeology, Westport, CT: Bergin and Garvey. pp.
+  69-89.
+\bibAnnoteFile{Lyman2001}
+
+\end{thebibliography}
+
+
+
+
+\end{document}
+

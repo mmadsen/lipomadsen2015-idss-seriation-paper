@@ -1,5 +1,5 @@
 library("devtools")
-install_github("gianmarcoalberti/CAseriation")
+#install_github("gianmarcoalberti/CAseriation")
 library(CAseriation)
 
 pdf()

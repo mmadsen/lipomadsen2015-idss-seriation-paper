@@ -246,13 +246,6 @@ graph [
   ]
   edge [
     source 2
-    target 5
-    inverseweight 0.777114755559
-    sumDiffWeight 0.253698947419
-    weight 1.28681123714
-  ]
-  edge [
-    source 2
     target 4
     inverseweight 0.812484398886
     sumDiffWeight 0.348469811806
@@ -275,9 +268,9 @@ graph [
   edge [
     source 2
     target 10
+    inverseweight 0.770222510749
     sumDiffWeight 0.234218286831
     weight 1.29832611491
-    inverseweight 0.770222510749
   ]
   edge [
     source 2
@@ -373,9 +366,9 @@ graph [
   edge [
     source 4
     target 7
+    inverseweight 0.718244701679
     sumDiffWeight 0.0752634753167
     weight 1.39228315595
-    inverseweight 0.718244701679
   ]
   edge [
     source 4
@@ -483,6 +476,20 @@ graph [
     inverseweight 0.833641943907
   ]
   edge [
+    source 6
+    target 16
+    inverseweight 0.825709837396
+    sumDiffWeight 0.381821048193
+    weight 1.21107918873
+  ]
+  edge [
+    source 6
+    target 17
+    inverseweight 0.833133196675
+    sumDiffWeight 0.400076934783
+    weight 1.20028826602
+  ]
+  edge [
     source 7
     target 8
     sumDiffWeight 0.58159708893
@@ -558,6 +565,13 @@ graph [
     sumDiffWeight 0.612783122843
     weight 1.07455917452
     inverseweight 0.930614175292
+  ]
+  edge [
+    source 8
+    target 13
+    inverseweight 0.970564310195
+    sumDiffWeight 0.687611894568
+    weight 1.030328428
   ]
   edge [
     source 8
@@ -750,10 +764,24 @@ graph [
   ]
   edge [
     source 15
+    target 17
+    inverseweight 0.744390006001
+    sumDiffWeight 0.157993867606
+    weight 1.34338181859
+  ]
+  edge [
+    source 15
     target 18
     inverseweight 0.728298722914
     sumDiffWeight 0.107779853495
     weight 1.37306295966
+  ]
+  edge [
+    source 15
+    target 19
+    inverseweight 0.897741067846
+    sumDiffWeight 0.546215300467
+    weight 1.11390693354
   ]
   edge [
     source 17

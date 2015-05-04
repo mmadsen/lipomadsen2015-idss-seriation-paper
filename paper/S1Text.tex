@@ -1,0 +1,86 @@
+\documentclass[10pt]{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\begin{document}
+
+\title{Supplementary Information for ``A Theoretically-Sufficient And Computationally-Practical Technique For Deterministic Frequency Seriation''}
+\author{Carl P. Lipo, Mark E. Madsen, and Robert C. Dunnell}
+\date{March 2015}
+\maketitle
+
+
+
+\section*{S1 Text:  Pseudo-code representation of the IDSS algorithm}
+
+
+\begin{algorithm}[h]
+\caption{Algorithm for IDSS seriation}\label{alg:idss}
+\begin{algorithmic}[1]
+
+ \Require  Input file $I$ format:  
+ \State Tab-delimited text, column 0 contains assemblage name
+ \State Remaining columns contain type counts as integers
+
+\Procedure{IDSS}{$I$}
+   
+   \State Read input file $I$
+   \State Calculate relative frequency of each type
+   \State Calculate max frequency difference between assemblage pairs
+   \State Create list of assemblages $A$
+    
+    \ForAll{triplets of assemblages $T$}
+        \If{using continuity threshold $t_c$}
+            \If{max frequency difference $> t_c$ for pairs $\in T$}
+            \State Skip triplet
+            \EndIf
+        \EndIf
+
+        \If{triplet $T$ is valid given unimodality for all types}
+            \State Store triplet in candidate solutions $\mathbf{C}$
+        \EndIf
+
+        
+
+        \State $R \gets$ assemblages $\notin \mathbf{C}$  
+        \Comment Remaining assemblages
+        
+
+        \Repeat
+            \ForAll{assemblages $ a \in R$}
+                \If{using continuity threshold $t_c$}
+                    \If{max freq difference $> t_c$ for $a$ and all $\mathbf{C}$}
+                        \State Skip assemblage $a$ for this loop
+                    \EndIf
+                \EndIf
+                
+                \If{assemblage $a$ + candidate solution $c \in \mathbf{C}$}
+                    \State Replace $c$ in $\mathbf{C}$ with $c+a$
+                    \State Remove $a$ from $R$
+                    \Comment Grow existing solutions
+                \EndIf
+            
+            \EndFor        
+            
+        \Until{ $R = \empty$ or loop repeats with no changes }
+
+            \ForAll{candidate solutions $c \in \mathbf{C}$}
+                \If{$c$ is strict subset of another solution in $\mathbf{C}$}
+                    \State Remove $c$ from $\mathbf{C}$
+                \EndIf
+            \EndFor
+
+    \EndFor
+    \Comment $\mathbf{C}$ now contains the set of solutions
+    
+    \State Output $\mathbf{C}$ in various formats
+    
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\end{document}
